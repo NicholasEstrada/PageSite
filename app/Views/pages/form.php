@@ -1,0 +1,46 @@
+<form action="index.php/cadastro/cadastrar"  method="post">
+     <p>Nome :</p>
+     <input type="text" name="usuario" value="" size="50" />
+     <p>Telefone :</p>
+     <input type="tel" id="phone" name="phone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" />
+     <p>E-mail :</p>
+     <input type="email" name="email" value="" size="50" />
+     <p>Mensagem :</p>
+     <input type="text" name="senhaconf" value="" size="50" />
+     <div><input type="submit" value="Enviar" /></div>
+ </form>
+
+ <script type="text/javascript" charset="UTF-8">
+		
+        function mask(o, f) {
+    setTimeout(function () {
+        var v = mphone(o.value);
+        if (v != o.value) {
+            o.value = v;
+        }
+    }, 1);
+}
+
+function mphone(v) {
+    var r = v.replace(/\D/g,"");
+    r = r.replace(/^0/,"");
+    if (r.length > 10) {
+        // 11+ digits. Format as 5+4.
+        r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/,"($1) $2-$3");
+    }
+    else if (r.length > 5) {
+        // 6..10 digits. Format as 4+4
+        r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/,"($1) $2-$3");
+    }
+    else if (r.length > 2) {
+        // 3..5 digits. Add (0XX..)
+        r = r.replace(/^(\d\d)(\d{0,5})/,"($1) $2");
+    }
+    else {
+        // 0..2 digits. Just add (0XX
+        r = r.replace(/^(\d*)/, "($1");
+    }
+    return r;
+}
+
+</script>
