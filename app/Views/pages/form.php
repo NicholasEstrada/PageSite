@@ -1,14 +1,19 @@
-<form action="index.php/cadastro/cadastrar"  method="post">
+
+<div class="container">
+
+<form action="<?php  ?>"  method="post">
      <p>Nome :</p>
-     <input type="text" name="usuario" value="" size="50" />
+     <input type="text" name="nome" value="" size="50" />
      <p>Telefone :</p>
      <input type="tel" id="phone" name="phone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" />
      <p>E-mail :</p>
      <input type="email" name="email" value="" size="50" />
      <p>Mensagem :</p>
-     <input type="text" name="senhaconf" value="" size="50" />
+     <input type="text" name="mensagem" value="" size="50" />
      <div><input type="submit" value="Enviar" /></div>
  </form>
+
+</div>
 
  <script type="text/javascript" charset="UTF-8">
 		

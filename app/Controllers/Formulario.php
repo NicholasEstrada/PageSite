@@ -18,13 +18,12 @@ class Formulario extends BaseController{
 
     public function cadastrar() {
              $this->load->library('form_validation');
-             $this->form_validation->set_rules('usuario', 'Usuário',
-                  'required|min_length[5]|max_length[12]');
-             $this->form_validation->set_rules('senha', 'Senha', 'required|min_length[7]',
+             $this->form_validation->set_rules('nome', 'nome',
+                  'required|min_length[5]|max_length[99]');
+             $this->form_validation->set_rules('phone', 'phone', 'required|min_length[7]',
                    array('required' => 'Você deve preencher a %s.'));
-             $this->form_validation->set_rules('senhaconf', 'Confirmação de Senha',
-                   'required|matches[senha]');
              $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+             $this->form_validation->set_rules('mensagem', 'Confirmação de Senha', 'required|min_length[7]');
 
              if ($this->form_validation->run() == FALSE) {
                 $erros = array('mensagens' => validation_errors());
@@ -33,4 +32,5 @@ class Formulario extends BaseController{
                 echo "Formulário enviado com sucesso.";
             }
         }
+
 }
